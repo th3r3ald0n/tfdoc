@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tfdoc"
+version = "0.1.0"
+dependencies = ["python-hcl2"]
+description = "A CLI tool to generate documentation from terraform files."
+
+[project.scripts]
+tfdoc = "tfdoc.main:main"
