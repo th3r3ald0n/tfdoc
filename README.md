@@ -1,7 +1,7 @@
 # tfdoc 
 
 ## Overview
-tfdoc is a command-line tool designed to parse Terraform (`.tf`) files and extract relevant information about resources and variables. It generates structured Markdown tables, making it easier to analyze and document Terraform configurations.
+tfdoc is a command-line tool designed to parse Terraform (`.tf`) files and extract relevant information about resources and variables. It generates structured Markdown and Confluence format tables, making it easier to analyze and document Terraform configurations.
 
 ## Features
 - Extracts resource names and attributes from Terraform files
@@ -62,15 +62,31 @@ To include resource dependencies in the output:
 tfdoc --include-depends
 ```
 
+To include variables in the resource dependencies:
+```sh
+tfdoc --include-depends-vars
+```
+
+### Format 
+Following formats are available:
+- Confluence table
+```sh
+tfdoc --format confluence
+```
+
+- Markdown
+```sh
+tfdoc --format markdown
+```
+
+
 ### Output
-After running `tfdoc`, two output files are generated:
-- `tfdoc.md`: Contains a table of resources and selected attributes.
-- `tfdoc_vars.md`: Lists Terraform variables with their types and descriptions.
+After running `tfdoc`, an output file is generated at the working directory
 
 ## Limitations
 - Only supports Terraform files written in HCL2.
 - Does not validate Terraform syntax or state files.
-- Requires all `.tf` files to be in the same directory or subdirectories.
+
 
 
 
