@@ -35,8 +35,8 @@ def main():
 
     table = [
         [j.Resource_type, j.Resource, j.Resource_name] + j.get_attr(args.list) +
-        ([j.depends_on(ids)] if args.include_depends else []) +
-        ([j.depends_on_incl_vars(ids)] if args.include_depends_vars else [])
+        ([", ".join(j.depends_on(ids))] if args.include_depends else []) +
+        ([", ".join(j.depends_on_incl_vars(ids))] if args.include_depends_vars else [])
         for i in result.values() for j in i]
 
     def headers(array):
