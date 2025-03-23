@@ -39,7 +39,7 @@ class Resource(TerraformBlock):
         self.Resource_type = "Resource"
         self.Resource = list(data)[0]
         self.Resource_name = list(data[self.Resource])[0]
-        self._config = data[self.Resource]
+        self._config = data[self.Resource][self.Resource_name]
         self.id = f"{self.Resource}.{self.Resource_name}"
 
 class Data(TerraformBlock):
@@ -47,7 +47,7 @@ class Data(TerraformBlock):
         self.Resource_type = "Data"
         self.Resource = list(data)[0]
         self.Resource_name = list(data[self.Resource])[0]
-        self._config = data[self.Resource]
+        self._config = data[self.Resource][self.Resource_name]
         self.id = f"{self.Resource}.{self.Resource_name}"
 
 class Variable(TerraformBlock):

@@ -29,8 +29,8 @@ def main():
         with file.open("r", encoding="utf-8") as f:
             d = hcl2.load(f)
             for block_type, cls in blocks.items():
-                result[block_type] = [cls(block) for block in d.get(block_type, [])]
-    
+                result[block_type] = result.get(block_type, []) + [cls(block) for block in d.get(block_type, [])]
+        
     ids = [j.id for i in result.values() for j in i]
 
     table = [
